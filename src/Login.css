@@ -1,0 +1,205 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* Hide scrollbar for Chrome, Safari, and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+.background-login {
+  background: url('assets/background.jpg') center center/cover no-repeat;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px; 
+  margin-top: -250px;
+  
+}
+
+header h1 {
+  font-size: 2.5em; /* Make this bigger as needed */
+  font-family: Felix;
+  color: whitesmoke;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 4px;
+}
+
+
+
+.translucent-container h2 {
+  color: rgba(0, 0, 0,);
+  margin: 0 0 20px;
+  font-family: Felix;
+  letter-spacing: 3px;
+}
+
+.translucent-container input {
+  display: block;
+  width: calc(100% - 50px); /* Adjust width considering the padding */
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+}
+
+.translucent-container .buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn1-2 {
+  width: 85%; /* Adjust width as needed */
+  margin: 10px 0 10px;
+  padding: 12px;
+  border: none;
+  background: linear-gradient(to right, #313131, #575858);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: Felix;
+  letter-spacing: 3px;
+}
+
+.btn1-2:hover {
+  background: linear-gradient(to right, #575858, #313131);
+}
+
+.forgot-password {
+  background: none;
+  border: none;
+  color: black; /* adjust for visibility */
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: felix
+  ;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .translucent-container {
+      width: 20%;
+      padding: 15px;
+  }
+
+  .translucent-container button {
+      width: 100%;
+      margin: 5px 0;
+  }
+}
+
+.or-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.or-container hr {
+  flex-grow: 1;
+  border: none;
+  border-top: 3px solid #575858;
+  margin: 0 10px;
+}
+
+.or-container span {
+  font-size: 16px;
+  color: #000000;
+  font-family: Felix;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+  .translucent-container h2 {
+      font-size: 1.5em;
+  }
+
+  .translucent-container input {
+      padding: 8px;
+  }
+
+  .translucent-container button {
+      padding: 8px;
+  }
+}
+
+@font-face {
+  font-family: Felix;
+  src: url(fonts/felix-titling.ttf);
+  font-weight: normal;
+  font-style: normal;
+  color: black;
+}
+
+.login-page {
+  perspective: 1000px; /* Give some depth to the perspective */
+}
+
+.flip-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.flipper {
+  transition: 0.7s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flipped .flipper {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+
+.translucent-container {
+  background-color: rgba(255, 255, 255, 0.3); 
+  padding: 40px; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 86%; 
+  max-width: 600px; 
+  height: 340px; 
+  margin: auto;
+}
+
+

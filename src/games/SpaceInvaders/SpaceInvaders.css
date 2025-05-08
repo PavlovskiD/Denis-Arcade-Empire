@@ -1,0 +1,46 @@
+.spaceInvadersGame-container {
+  text-align: center;
+  background-color: #f0e1ca;
+  color: black;
+  padding: 20px;
+  font-family: Ceaser;
+  letter-spacing: 1px;
+  border-radius: 8px;;
+}
+
+.spaceInvadersGame-controls {
+  margin-bottom: 10px;
+}
+
+.spaceStart, .spaceStop {
+  padding: 10px 15px;
+  margin: 0 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #444;
+  color: #fff;
+  font-family: ceaser;  
+  letter-spacing: 1px;
+}
+
+.spaceStart:hover {
+  background-color: #4CAF50;
+}
+.spaceStop:hover {
+  background-color: #f44336;
+}
+
+.spaceInvadersGame-canvas {
+  border: 2px solid #fff;
+  background-color: black;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.spaceInvadersGame-scoreboard {
+  margin-top: 10px;
+  font-size: 20px;
+}

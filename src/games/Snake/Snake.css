@@ -1,0 +1,145 @@
+.snake-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:  #f0e1ca;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: max-content;
+    margin: 20px auto;
+    font-family: ceaser;
+    letter-spacing: 1.5px;
+    margin-left: 280px;
+  }
+  
+  .snake-grid {
+    display: grid;
+    grid-template-columns: repeat(20, 21px);
+    grid-template-rows: repeat(20, 21px);
+    gap: 0.5px;
+    background-color: #333;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .snake-cell {
+    width: 20px;
+    height: 20px;
+    background-color: #f0e1ca;
+  }
+  
+  .snake-body {
+    background-color: green;
+  }
+  
+  .snake-food {
+    background-color: red;
+  }
+  
+  .snake-score {
+    margin-bottom: 10px;
+  }
+  
+  
+  .snake-game-over {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 10px;
+    
+  }
+  
+  
+  .snake-start-screen {
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 20px;
+
+  }
+  
+  
+  .snake-start-btn, .snake-restart-btn {
+    background-color: #636060;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: ceaser;
+    letter-spacing: 1.5px;
+    
+  }
+  
+  .snake-start-btn:hover{
+    background-color:#4CAF50;
+
+  } .snake-restart-btn:hover {
+    background-color:#f44336;
+  }
+  
+  .snake-game-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  .snake-comment-section {
+    background: #ffffff;
+    padding: 25px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    width: 250px;
+    max-height: 600px;
+    overflow-y: auto;
+    font-family: felix;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 18px;
+  }
+  
+  .snake-comments-list {
+    max-height: 200px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+  }
+  
+  .snake-comments-list li {
+    background: #f0e1ca;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .snake-comment-input {
+    width: 93%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  
+  .snake-comment-button {
+    padding: 8px 12px;
+    background: #f8c471;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+  }
+  
+  .snake-comment-button:hover {
+    background: #f0b14a;
+  }
+  
+  .snake-timestamp{
+    color: gray;
+    font-size: 0.85rem;
+  }

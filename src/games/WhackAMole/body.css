@@ -1,0 +1,150 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+.App1 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(251, 243, 69, 0.5) 4%,
+      rgba(232, 216, 67, 0.5) 56%,
+      rgba(0, 212, 255, 0.5) 97%
+    ),
+    url(./background.png);
+  background-size: 100%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.heading1 {
+    margin-top: 30px;
+  display: block;
+  flex: 20%;
+}
+
+.body1 {
+  padding: 10px;
+  flex: 80%;
+  width: 90%;
+  margin: auto;
+}
+
+.body1 .grid-container1 {
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 90%;
+  height: 80%;
+  min-height: 450px;
+  background-image: url(./grass.png);
+  z-index: 0;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px green;
+  padding: 20px;
+}
+
+.body1 .grid-item1 {
+  width: 50%;
+  height: 60%;
+  margin: auto;
+}
+
+.father {
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.mole {
+  visibility: visible;
+  width: 50%;
+  height: 70%;
+  position: relative;
+  z-index: 1;
+  top: -53%;
+  left: 0%;
+  transform: translate(0, 80%);
+}
+
+.mole-up {
+  visibility: visible;
+  transform: translate(0, 0);
+}
+
+.bouncing {
+  animation: rubberband 100ms alternate ease-out;
+}
+
+.dirt {
+  z-index: 2;
+  position: absolute;
+  width: 25vw;
+  aspect-ratio: 1/1;
+}
+
+@media (min-width: 800px) {
+  .App1 {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(251, 243, 69, 0.5) 4%,
+        rgba(232, 216, 67, 0.5) 56%,
+        rgba(0, 212, 255, 0.5) 97%
+      ),
+      url(./background.png);
+    background-size: 25%;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .body1 .grid-container1 {
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(4, 33%px);
+    width: 60%;
+  }
+
+  .dirt {
+    position: absolute;
+    width: 35%;
+    height: 7%;
+  }
+
+  .mole {
+    width: 60%;
+    height: 70%;
+    z-index: 1;
+    top: -52%;
+    left: 0%;
+  }
+}
+
+@keyframes rubberband {
+  0% {
+    transform: scaleX(1);
+  }
+  40% {
+    transform: scaleX(1.12) scaleY(0.75);
+  }
+  55% {
+    transform: scaleX(0.85) scaleY(1);
+  }
+  65% {
+    transform: scaleX(1.09) scaleY(0.85);
+  }
+  75% {
+    transform: scaleX(0.9) scaleY(1);
+  }
+  90% {
+    transform: scaleX(1.05) scaleY(0.95);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}

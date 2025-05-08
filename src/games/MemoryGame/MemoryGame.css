@@ -1,0 +1,94 @@
+.App {
+    text-align: center;
+    background-color: #f0e1ca;
+    color: black;
+    min-height: 100px;
+    padding: 30px;
+    border-radius: 8px;
+    font-family: ceaser;
+    letter-spacing: 1.5px; 
+  }
+  
+  .head {
+    font-size: 3rem; 
+    margin-bottom: 30px; 
+  }
+  
+  .str {
+    background-color: #636060;
+    border: none;
+    padding: 15px 30px; 
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 30px; 
+    font-family: ceaser;
+    letter-spacing: 1.5px;
+    color: white;
+  }
+  
+  .str:hover {
+    background-color: #4CAF50;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; 
+    max-width: 1000px; 
+    margin: 0 auto;
+  }
+  
+  .card {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  
+  .card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front,
+  .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    border: 3px solid #fff; 
+    box-sizing: border-box;
+  }
+  
+  .card-front {
+    transform: rotateY(180deg);
+    background-color: #fff;
+  }
+  
+  .card-back {
+    background-color: white;
+  }
+  
+  .card-back img,
+  .card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+  
+  p {
+    margin-top: 30px;
+    font-size: 1.5rem; 
+  }
