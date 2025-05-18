@@ -103,6 +103,8 @@
 
 .nav-bar ul li {
   cursor: pointer;
+  padding-left: 30px;
+
 }
 
 #search-bar {

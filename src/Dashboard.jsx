@@ -154,7 +154,7 @@ const Dashboard = () => {
       >
         <div className="nav-bar">
           <h1>Deni's Arcade Empire</h1>
-          <ul>
+          <ul className="link-names">
             <li>
               <Link to="/profile" className="nav-links">
                 Profile
