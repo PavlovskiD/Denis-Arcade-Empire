@@ -1,17 +1,16 @@
-/* General Styles */
 
 .settings-page {
   max-width: 800px;
-  min-height: 100vh;
+  max-height: 100vw;
+  overflow-x: auto;
   height: auto;
-  z-index: 2;
-  padding: 20px;
+  padding: 40px;  
   font-family: Ceaser, Felix;
   letter-spacing: 1.5px;
   background-color: #f0e1ca;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 860px;
+  margin-top: 960px;
   margin-bottom: 10px;
 }
 @font-face {
