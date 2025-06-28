@@ -12,7 +12,7 @@ const Settings = () => {
   const [success, setSuccess] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
 
-  // Fetch user data on component mount
+ 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -38,14 +38,14 @@ const Settings = () => {
 
   const updateProfile = async () => {
     try {
-      // First, update the user's auth metadata
+     
       const { data: authData, error: authError } = await supabase.auth.updateUser({
         data: { username, bio }
       });
   
       if (authError) throw authError;
   
-      // Then, get current user info to update the leaderboard
+      
       const {
         data: { user },
         error: userError
@@ -53,7 +53,7 @@ const Settings = () => {
   
       if (userError) throw userError;
   
-      // Update the leaderboard table with the new username
+      
       const { error: lbError } = await supabase
         .from("leaderboard")
         .update({ username })
@@ -69,7 +69,7 @@ const Settings = () => {
     }
   };
 
-  // Update email
+  
   const updateEmail = async () => {
     try {
       const { error } = await supabase.auth.updateUser({ email });
@@ -83,7 +83,7 @@ const Settings = () => {
     }
   };
 
-  // Update password
+  
   const updatePassword = async () => {
     const newPassword = prompt("Enter your new password:");
     if (newPassword) {
@@ -102,7 +102,7 @@ const Settings = () => {
     }
   };
 
-  // Delete account
+ 
   const deleteAccount = async () => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete your account? This cannot be undone."
@@ -112,7 +112,7 @@ const Settings = () => {
         const { error } = await supabase.auth.admin.deleteUser(email);
 
         if (error) throw error;
-        window.location.href = "/login"; // Redirect to login after account deletion
+        window.location.href = "/login";
       } catch (error) {
         setError("Error deleting account: " + error.message);
         setTimeout(() => setError(""), 3000);
@@ -128,7 +128,7 @@ const Settings = () => {
       const { data: userData, error: userError } = await supabase.auth.getUser();
       if (userError) throw userError;
   
-      // Upload file with UUID to ensure unique filename
+      
       const fileName = `${userData.user.id}-${Math.random().toString(36).substring(2, 15)}`;
       
       const { error: uploadError } = await supabase.storage
@@ -140,16 +140,16 @@ const Settings = () => {
   
       if (uploadError) throw uploadError;
   
-      // Get public URL with timestamp cache buster
+      
       const { data: urlData } = supabase.storage
         .from('avatars')
         .getPublicUrl(fileName);
   
-      // Force refresh by adding timestamp
+      
       const timestamp = new Date().getTime();
       const cachedUrl = `${urlData.publicUrl}?t=${timestamp}`;
   
-      // Update user metadata
+      
       const { error: updateError } = await supabase.auth.updateUser({
         data: { avatarUrl: cachedUrl }
       });

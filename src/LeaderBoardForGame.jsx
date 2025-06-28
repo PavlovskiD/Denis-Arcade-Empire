@@ -9,15 +9,14 @@ const LeaderboardForGame = ({ gameId, limit = 10 }) => {
     setLoading(true);
     const { data, error } = await supabase
       .from("game_score")
-      .select("score, user_id, users(email)") // Correct the join syntax and check your column name
+      .select("score, user_id, users(email)")
       .eq("game_id", gameId)
       .order("score", { ascending: false })
       .limit(limit);
 
     if (error) {
       console.error("Error fetching leaderboard:", error.message);
-      setLeaderboard([]);  // Clear leaderboard on error
-    } else {
+      setLeaderboard([]);  
       setLeaderboard(data);
     }
     setLoading(false);
@@ -25,7 +24,7 @@ const LeaderboardForGame = ({ gameId, limit = 10 }) => {
 
   useEffect(() => {
     fetchLeaderboard();
-  }, [gameId]);  // Fetch leaderboard when the gameId changes
+  }, [gameId]);  
 
   return (
     <div className="leaderboard-container">

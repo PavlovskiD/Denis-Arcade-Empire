@@ -54,64 +54,7 @@ const Profile = () => {
     };
     fetchUserData();
     
-    // const fetchFavorites = async () => {
-    //   try {
-    //     const { data: { user }, error: authError } = await supabase.auth.getUser(); // Fetch the user correctly
-    //     if (authError) throw new Error(authError.message);
-    //     if (!user) throw new Error("User is not logged in");
-    
-    //     const { data: favoritesData, error: favoritesError } = await supabase
-    //       .from("favorites")
-    //       .select("game_id")
-    //       .eq("user_id", user.id); // Fetch favorite game IDs correctly
-    
-    //     if (favoritesError) {
-    //       console.error("Error fetching favorite game IDs:", favoritesError);
-    //       setFavoriteGames([]);
-    //       return;
-    //     }
-    
-    //     if (favoritesData && favoritesData.length > 0) {
-    //       const gameIds = favoritesData.map(fav => fav.game_id); // Extract valid game_ids
-    
-    //       const { data: gamesData, error: gamesError } = await supabase
-    //         .from("games")
-    //         .select("id, name, path")
-    //         .in("id", gameIds); // Ensure game_ids are valid
-    
-    //       if (gamesError) {
-    //         console.error("Error fetching game details:", gamesError);
-    //         setFavoriteGames([]);
-    //         return;
-    //       }
-    
-    //       setFavoriteGames(gamesData || []);
-    //     } else {
-    //       setFavoriteGames([]);
-    //     }
-    //   } catch (error) {
-    //     console.error("Error fetching favorites:", error);
-    //     setFavoriteGames([]);
-    //   }
-    // };
 
-    // const fetchRecentlyPlayed = async (uid) => {
-    //   const { data, error } = await supabase
-    //     .from("recently_played")
-    //     .select("game_id, games (name, path), played_at")
-    //     .eq("user_id", uid)
-    //     .order("played_at", { descending: true })
-    //     .limit(5);
-
-    //   if (error) {
-    //     console.error("Error fetching recently played:", error);
-    //   } else {
-    //     setRecentGames(data.map((row) => row.games));
-    //   }
-    // };
-
-
-    // Add real-time listener for auth changes
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event) => {
@@ -134,7 +77,7 @@ const Profile = () => {
           src={avatarUrl}
           alt="Avatar"
           className="profile-avatar"
-          key={avatarUrl} // Force re-render when URL changes
+          key={avatarUrl} 
         />
         <h2 className="profile-username">{username}</h2>
         <p className="profile-bio">{bio}</p>
@@ -167,7 +110,7 @@ const Profile = () => {
               </li>
             ))
           ) : (
-            <li>No recent games yet.</li>
+            <li>Flappy Bird</li>
           )}
         </ul>
       </div>

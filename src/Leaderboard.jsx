@@ -31,16 +31,16 @@ const Leaderboard = () => {
 
     const fetchLeaderboard = async () => {
       try {
-        // Check if user already in leaderboard
+        
         const { data: existingUser, error: checkError } = await supabase
           .from("leaderboard")
           .select("*")
           .eq("user_id", user.id)
-          .maybeSingle(); // ✅ Prevents duplicate insert
+          .maybeSingle(); 
 
         if (checkError) throw checkError;
 
-        // Insert if user not found
+       
         if (!existingUser) {
           const { error: insertError } = await supabase
             .from("leaderboard")
@@ -56,7 +56,7 @@ const Leaderboard = () => {
           if (insertError) throw insertError;
         }
 
-        // Fetch leaderboard
+        
         const { data: leaderboard, error: fetchError } = await supabase
           .from("leaderboard")
           .select("*")

@@ -21,7 +21,7 @@ function Login() {
     event.preventDefault();
 
     try {
-      // Sign in with Supabase
+ 
       const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
@@ -34,7 +34,7 @@ function Login() {
 
       console.log("User logged in:", data.user);
 
-      // Save the logged-in user data to localStorage for the session
+     
       localStorage.setItem(
         "currentUser",
         JSON.stringify({
@@ -43,7 +43,6 @@ function Login() {
         })
       );
 
-      // Navigate to the dashboard
       navigate("/dashboard");
     } catch (error) {
       console.error("Error logging in:", error.message);
@@ -58,13 +57,13 @@ function Login() {
     }
 
     try {
-      // Sign up with Supabase
+      
       const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
         options: {
           data: {
-            username: userName, // Store additional user data in the `auth.users` table
+            username: userName, 
           },
         },
       });
@@ -76,13 +75,13 @@ function Login() {
 
       console.log("User signed up:", data.user);
 
-      // Save user data in localStorage (optional, since Supabase handles this)
+     
       localStorage.setItem(
         "currentUser",
         JSON.stringify({ username: userName, email: email })
       );
 
-      // Navigate to the dashboard
+      
       navigate("/dashboard");
     } catch (error) {
       console.error("Error signing up:", error.message);
@@ -90,7 +89,7 @@ function Login() {
   };
 
   const handleFlip = () => {
-    setIsFlipped((prev) => !prev); // Toggle flip state
+    setIsFlipped((prev) => !prev);
   };
 
   const handleForgotPassword = async () => {
@@ -116,7 +115,7 @@ function Login() {
     <div className={`login-page ${isFlipped ? "flipped" : ""}`}>
       <div className="background-image"></div>
       <header>
-        <h1>DENI'S ARCADE EMPIRE</h1>
+        <h1 className="heading">DENI'S ARCADE EMPIRE</h1>
       </header>
       <div className="flip-container">
         <div className="flipper">
