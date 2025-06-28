@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Dashboard1.css";
+import "./Dashboard.css";
 import leftStone from "./assets/noBackStone.svg";
 import rightStone from "./assets/noBackStone.svg";
 import { Link } from "react-router-dom";
@@ -77,14 +77,14 @@ const Dashboard = () => {
   //     const { data: { user }, error: authError } = await supabase.auth.getUser(); // Use getUser instead
   //     if (authError) throw new Error(authError.message);
   //     if (!user) throw new Error("User is not logged in");
-  
+
   //     const { error } = await supabase.from("favorites").insert([
   //       {
   //         user_id: user.id, // Ensure you're passing the correct user id
   //         game_id: game.id,  // Ensure you're passing the correct game id
   //       },
   //     ]);
-  
+
   //     if (error) {
   //       console.error("Error adding to favorites:", error);
   //       alert("Error adding to favorites");
@@ -96,8 +96,6 @@ const Dashboard = () => {
   //     alert("Error adding to favorites");
   //   }
   // };
-  
-  
 
   return (
     <>
@@ -110,7 +108,7 @@ const Dashboard = () => {
             transition: "opacity 0.5s ease-out",
           }}
         >
-          Welcome {userName} {/* Display username from state */}
+          Welcome {userName}
         </div>
         <img
           className="stone-left"
@@ -160,21 +158,13 @@ const Dashboard = () => {
                 Profile
               </Link>
             </li>
-            {/* <li>
-              <Link to="" className="nav-links">
-                Store
-              </Link>
-            </li> */}
+
             <li>
               <Link to="/leaderboard" className="nav-links">
                 Leaderboard
               </Link>
             </li>
-            {/* <li>
-              <Link to="" className="nav-links">
-                Friends
-              </Link>
-            </li> */}
+
             <li>
               <Link to="/settings" className="nav-links">
                 Settings
@@ -193,17 +183,14 @@ const Dashboard = () => {
           </div>
         </div>
         <div>
-        <div className="games">
-          {filteredGames.map((game) => (
-            <div key={game.id} className="game-card">
-            <Link className="linkDash" to={game.path}>
-              <h3 className="game-name">{game.name}</h3>
-            </Link>
-            {/* <button className="favorite-btn" onClick={() => handleAddFavorite(game.id)}>
-              <FontAwesomeIcon icon={faHeart} /> Favorites
-            </button> */}
-            </div>
-          ))}
+          <div className="games">
+            {filteredGames.map((game) => (
+              <div key={game.id} className="game-card">
+                <Link className="linkDash" to={game.path}>
+                  <h3 className="game-name">{game.name}</h3>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ import WhackAMole from "./games/WhackAMole/WhackAMole";
 function App() {
   return (
     <Router>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
@@ -29,7 +29,7 @@ function App() {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/Flappy-Bird" element={<FlappyBird />} />
         <Route path="/Tic-Tac-Toe" element={<TicTacToe />} />
-        <Route path="/Snake"  element={<SnakeGame />} />
+        <Route path="/Snake" element={<SnakeGame />} />
         <Route path="/Doodle-Jump" element={<DoodleJump />} />
         <Route path="/Memory-Game" element={<MemoryGame />} />
         <Route path="/Space-Invaders" element={<SpaceInvaders />} />
