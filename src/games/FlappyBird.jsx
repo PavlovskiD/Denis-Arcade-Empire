@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import submitScore from "../SubmitScore";
 import supabase from "../supabase/supabaseClient";
+import birdImage from "@assets/yellowbird-upflap.png";
+import backgroundImage from "@assets/background-day.png";
+import pipeGreenImage from "@assets/pipe-green.png";
 
 const BIRD_HEIGHT = 28;
 const BIRD_WIDTH = 33;
@@ -200,7 +203,7 @@ const Header = styled.div`
 `;
 
 const Background = styled.div`
-  background-image: url("./src/assets/background-day.png");
+  background-image: url("${backgroundImage}");
   background-repeat: no-repeat;
   background-size: ${(props) => props.width}px ${(props) => props.height}px;
   width: ${(props) => props.width}px;
@@ -212,7 +215,7 @@ const Background = styled.div`
 
 const Bird = styled.div`
   position: absolute;
-  background-image: url("./src/assets/yellowbird-upflap.png");
+  background-image: url("${birdImage}");
   background-repeat: no-repeat;
   background-size: ${(props) => props.width}px ${(props) => props.height}px;
   width: ${(props) => props.width}px;
@@ -223,7 +226,7 @@ const Bird = styled.div`
 
 const Obj = styled.div`
   position: relative;
-  background-image: url("./src/assets/pipe-green.png");
+  background-image: url("${pipeGreenImage}");
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   left: ${(props) => props.left}px;
@@ -293,7 +296,6 @@ const CommentList = styled.ul`
   letter-spacing: 1.5px;
   max-height: 200px;
   overflow-y: auto;
-  
 `;
 
 const Comment = styled.li`
@@ -302,7 +304,6 @@ const Comment = styled.li`
   border-radius: 8px;
   margin-bottom: 9px;
   font-size: 14px;
-  
 `;
 
 const CommentInput = styled.input`
