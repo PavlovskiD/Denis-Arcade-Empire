@@ -12,7 +12,6 @@ const Settings = () => {
   const [success, setSuccess] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
 
- 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -38,29 +37,27 @@ const Settings = () => {
 
   const updateProfile = async () => {
     try {
-     
-      const { data: authData, error: authError } = await supabase.auth.updateUser({
-        data: { username, bio }
-      });
-  
+      const { data: authData, error: authError } =
+        await supabase.auth.updateUser({
+          data: { username, bio },
+        });
+
       if (authError) throw authError;
-  
-      
+
       const {
         data: { user },
-        error: userError
+        error: userError,
       } = await supabase.auth.getUser();
-  
+
       if (userError) throw userError;
-  
-      
+
       const { error: lbError } = await supabase
         .from("leaderboard")
         .update({ username })
         .eq("user_id", user.id);
-  
+
       if (lbError) throw lbError;
-  
+
       setSuccess("Profile updated successfully!");
       setTimeout(() => setSuccess(""), 3000);
     } catch (error) {
@@ -69,7 +66,6 @@ const Settings = () => {
     }
   };
 
-  
   const updateEmail = async () => {
     try {
       const { error } = await supabase.auth.updateUser({ email });
@@ -83,7 +79,6 @@ const Settings = () => {
     }
   };
 
-  
   const updatePassword = async () => {
     const newPassword = prompt("Enter your new password:");
     if (newPassword) {
@@ -102,7 +97,6 @@ const Settings = () => {
     }
   };
 
- 
   const deleteAccount = async () => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete your account? This cannot be undone."
@@ -123,39 +117,38 @@ const Settings = () => {
   const handleAvatarUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
-  
+
     try {
-      const { data: userData, error: userError } = await supabase.auth.getUser();
+      const { data: userData, error: userError } =
+        await supabase.auth.getUser();
       if (userError) throw userError;
-  
-      
-      const fileName = `${userData.user.id}-${Math.random().toString(36).substring(2, 15)}`;
-      
+
+      const fileName = `${userData.user.id}-${Math.random()
+        .toString(36)
+        .substring(2, 15)}`;
+
       const { error: uploadError } = await supabase.storage
-        .from('avatars')
+        .from("avatars")
         .upload(fileName, file, {
-          cacheControl: '3600',
-          upsert: true
+          cacheControl: "3600",
+          upsert: true,
         });
-  
+
       if (uploadError) throw uploadError;
-  
-      
+
       const { data: urlData } = supabase.storage
-        .from('avatars')
+        .from("avatars")
         .getPublicUrl(fileName);
-  
-      
+
       const timestamp = new Date().getTime();
       const cachedUrl = `${urlData.publicUrl}?t=${timestamp}`;
-  
-      
+
       const { error: updateError } = await supabase.auth.updateUser({
-        data: { avatarUrl: cachedUrl }
+        data: { avatarUrl: cachedUrl },
       });
-  
+
       if (updateError) throw updateError;
-  
+
       setAvatarUrl(cachedUrl);
       setSuccess("Profile picture updated successfully!");
       setTimeout(() => setSuccess(""), 3000);
@@ -199,29 +192,24 @@ const Settings = () => {
           Update Profile
         </button>
         <label>Profile Picture</label>
-          <div className="avatar-upload">
-            {avatarUrl && (
-              <img 
-                src={avatarUrl} 
-                alt="Profile" 
-                className="current-avatar"
-              />
-            )}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleAvatarUpload}
-              className="avatar-input"
-            />
-            <button 
-              onClick={() => document.querySelector('.avatar-input').click()}
-              className="secondary"
-            >
-              {avatarUrl ? "Change Avatar" : "Upload Avatar"}
-            </button>
-          </div>
+        <div className="avatar-upload">
+          {avatarUrl && (
+            <img src={avatarUrl} alt="Profile" className="current-avatar" />
+          )}
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleAvatarUpload}
+            className="avatar-input"
+          />
+          <button
+            onClick={() => document.querySelector(".avatar-input").click()}
+            className="secondary"
+          >
+            {avatarUrl ? "Change Avatar" : "Upload Avatar"}
+          </button>
         </div>
-      
+      </div>
 
       {/* Account Settings */}
       <div className="settings-card">

@@ -21,7 +21,6 @@ function Login() {
     event.preventDefault();
 
     try {
- 
       const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
@@ -34,7 +33,6 @@ function Login() {
 
       console.log("User logged in:", data.user);
 
-     
       localStorage.setItem(
         "currentUser",
         JSON.stringify({
@@ -57,13 +55,12 @@ function Login() {
     }
 
     try {
-      
       const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
         options: {
           data: {
-            username: userName, 
+            username: userName,
           },
         },
       });
@@ -75,13 +72,11 @@ function Login() {
 
       console.log("User signed up:", data.user);
 
-     
       localStorage.setItem(
         "currentUser",
         JSON.stringify({ username: userName, email: email })
       );
 
-      
       navigate("/dashboard");
     } catch (error) {
       console.error("Error signing up:", error.message);
@@ -99,7 +94,7 @@ function Login() {
     }
     try {
       const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: "http://localhost:5173/update-password",
+        redirectTo: "/update-password",
       });
       if (error) {
         alert(error.message);
