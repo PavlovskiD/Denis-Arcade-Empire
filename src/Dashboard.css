@@ -26,8 +26,8 @@
 
 .stone-left {
   background: url("assets/noBackStone.svg") center center/cover no-repeat;
-  width: 800px;
-  height: 1170px;
+  width: 50rem;
+  height: 73rem;
   transition: transform 0.6s ease-in-out;
   background-size: contain;
   position: absolute;
@@ -37,8 +37,8 @@
 
 .stone-right {
   background: url("assets/noBackStone.svg") center center/cover no-repeat;
-  width: 800px;
-  height: 1170px;
+  width: 50rem;
+  height: 73rem;
   background-size: contain;
   transform: scaleX(-1);
   transition: transform 0.6s ease-in-out;
@@ -135,7 +135,7 @@
 }
 .game-card {
   background-color: #f0e1ca;
-  padding: 80px;
+  padding: 50px;
   text-align: center;
   flex: 1;
   margin: 30px;
@@ -161,7 +161,7 @@
 
 .game-name {
   display: inline-block;
-  font-size: 20px;
+  font-size: 2rem;
   color: black;
   padding: 25px;
   cursor: pointer;
@@ -173,7 +173,7 @@
 }
 
 .nav-links {
-  font-size: 20px;
+  font-size: 25px;
   color: black;
   text-decoration: none;
   transition: all color 0.3s;
